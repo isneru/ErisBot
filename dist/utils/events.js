@@ -5,8 +5,8 @@ exports.registerEvents = exports.event = exports.Events = void 0;
 var discord_js_1 = require("discord.js");
 Object.defineProperty(exports, "Events", { enumerable: true, get: function () { return discord_js_1.Events; } });
 // Creates an event structure
-function event(key, callback) {
-    return { key, callback };
+function event(callback) {
+    return callback;
 }
 exports.event = event;
 // Registers events to the client
