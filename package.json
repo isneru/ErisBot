@@ -1,18 +1,37 @@
 {
-  "name": "eris_bot",
+  "name": "erisbot",
+  "version": "0.1.0",
   "description": "Discord Bot",
   "license": "ISC",
   "author": "AlexandreFPGoncalves",
-  "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node .",
-    "deploy-commands": "node src/deployCommands.js"
+    "dev": "nodemon --config nodemon.json src/index.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexandreFPGoncalves/ErisBot.git"
   },
   "keywords": [],
+  "bugs": {
+    "url": "https://github.com/AlexandreFPGoncalves/ErisBot/issues"
+  },
+  "homepage": "https://github.com/AlexandreFPGoncalves/ErisBot#readme",
+  "devDependencies": {
+    "@types/node": "^20.8.9",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "dependencies": {
-    "discord.js": "^14.13.0",
+    "discord.js": "^14.11.0",
     "dotenv": "^16.3.1"
   }
 }
