@@ -1,7 +1,8 @@
-import { Client, GatewayIntentBits } from 'discord.js';
-import { registerEvents, registerSlashCommands } from './utils/index.js';
-import Events from './events/index.js';
-import Keys from './keys.js';
+const { Client, GatewayIntentBits } = require('discord.js');
+const { CommandKit } = require('commandkit');
+import 'dotenv/config';
+
+const path = require('path');
 
 const client = new Client({
   intents: [
@@ -12,10 +13,16 @@ const client = new Client({
   ],
 });
 
-// registerEvents(client, Events);
-registerSlashCommands(client);
-
-client.login(Keys.clientToken).catch((err) => {
-  console.log('[Login Error]', err);
-  process.exit(1);
+new CommandKit({
+  client,
+  commandsPath: path.join(__dirname, 'commands'),
+  eventsPath: path.join(__dirname, 'events'),
+  // validationsPath: path.join(__dirname, 'validations'),
+  devGuildIds: ['1145481891357675582', '589313803749949440'],
+  devUserIds: ['198873253626904577', '387337136732635137'],
+  // devRoleIds: ['DEV_ROLE_ID_1', 'DEV_ROLE_ID_2'],
+  skipBuiltInValidations: true,
+  bulkRegister: true,
 });
+
+client.login(process.env.CLIENT_TOKEN);
