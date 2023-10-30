@@ -1,7 +1,9 @@
 import { config } from 'dotenv';
 import { resolve } from 'path';
 
-const EnvFilePath = resolve(process.cwd(), '.env');
+const EnvFile = process.env.NODE_END === 'development' ? '.dev.env' : '.env';
+
+const EnvFilePath = resolve(process.cwd(), EnvFile);
 
 config({ path: EnvFilePath });
 
