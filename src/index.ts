@@ -1,8 +1,7 @@
-const { Client, GatewayIntentBits } = require('discord.js');
-const { CommandKit } = require('commandkit');
+import { Client, GatewayIntentBits } from 'discord.js';
+import { CommandKit } from 'commandkit';
 import 'dotenv/config';
-
-const path = require('path');
+import * as path from 'path';
 
 const client = new Client({
   intents: [
